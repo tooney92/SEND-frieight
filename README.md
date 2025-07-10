@@ -1,27 +1,93 @@
-# README
+# 📦 SEND Freight — Legacy Demurrage Mini-Service
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 📌 Important Notes
 
-Things you may want to cover:
+- This app was built as part of an assessment involving legacy schema reverse-engineering.
+- For migration decisions, I’m aware of [Strong Migrations](https://github.com/ankane/strong_migrations) best practices. In some cases, I skipped strict compliance to keep things simple and focused on clarity and functionality.
 
-* Important Notes:
-    * For a migration of this nature, I am aware I should rely on rails strong migrations best practices/guides. I avoided it just to keep things simple.
+## 💎 Ruby Version
 
-* Ruby version
+- Ruby `3.3.4`
+- Rails `7.1+`
 
-* System dependencies
+## 🧰 System Dependencies
 
-* Configuration
+- MySQL (via Docker)
+- Docker + Docker Compose
+- `asdf` or `rbenv` recommended for Ruby version management
 
-* Database creation
+## ⚙️ Configuration
 
-* Database initialization
+```bash
+cp .env.example .env
+```
 
-* How to run the test suite
+Edit your `.env` file with DB credentials and other required settings.
 
-* Services (job queues, cache servers, search engines, etc.)
+## 🗃️ Database Creation
 
-* Deployment instructions
+```bash
+rails db:create
+```
 
-* ...
+## 🛠️ Database Initialization
+
+```bash
+rails db:migrate
+```
+
+## 🧪 Seeding the Database
+
+This project uses a **custom seed loader** (`db/seeder.rb`) to allow modular, environment-specific seeding.
+
+### 📁 Seed File Structure
+
+Seed files live under:
+
+```
+db/seed_files/
+├── common/
+│   ├── 00_customers.rb
+│   ├── 01_bill_of_ladings.rb
+│   └── 02_invoices.rb
+├── development/
+│   └── test_data.rb
+└── test/
+    └── test_data.rb
+```
+
+### 🚀 Running Seeds
+
+You can selectively run seed files using the `seeds` environment variable:
+
+```bash
+rails db:seed seeds=00_customers
+```
+
+You can also pass multiple seeders (comma-separated):
+
+```bash
+rails db:seed seeds=00,01
+```
+
+If no `seeds=` is passed, it will load:
+
+- All files in `db/seed_files/common/`
+- All files in `db/seed_files/#{Rails.env}/`
+
+This structure allows selective, repeatable seeding and separation of common vs. environment-specific data.
+
+## 🧪 How to Run the Test Suite
+
+```bash
+bundle exec rspec
+```
+
+## 🛠️ Services
+
+- Background Jobs: SolidQueue
+- Database: MySQL 8 (via Docker)
+
+## 🚀 Deployment Instructions
+
+TBD – currently intended for local development and assessment use.

@@ -16,10 +16,10 @@ gem "solid_queue"
 group :development, :test do
   gem "dotenv-rails"
   gem "pry-rails"
-  gem "rspec-rails", "~> 6.1"
   gem "factory_bot_rails"
   gem "faker"
   gem "shoulda-matchers", "~> 6.0"
+  gem "rspec-rails"
 end
 
 
