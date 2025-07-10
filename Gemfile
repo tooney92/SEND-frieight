@@ -20,6 +20,7 @@ group :development, :test do
   gem "faker"
   gem "shoulda-matchers", "~> 6.0"
   gem "rspec-rails"
+  gem 'bullet'
 end
 
 

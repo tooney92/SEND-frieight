@@ -13,7 +13,7 @@ class BillOfLading < ApplicationRecord
            foreign_key: :bill_of_lading_number,
            primary_key: :number
 
-  validates :number, presence: true, uniqueness: true
+  validates :number, presence: true, uniqueness: { case_sensitive: false }
 
   # Scope: find BLs overdue as of a specific date
   scope :overdue_as_of, ->(date) {
