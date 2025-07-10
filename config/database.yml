@@ -7,8 +7,13 @@ default: &default
   port: 3307
 
 development:
-  <<: *default
-  database: demurrage_development
+  primary:
+    <<: *default
+    database: demurrage_development
+  queue:
+    <<: *default
+    database: demurrage_development_queue
+    migrations_paths: db/queue_migrate
 
 test:
   <<: *default

@@ -1,0 +1,5 @@
+ development:
+   overdue_invoices:
+     class: Demurrage::InvoiceGenerationJob
+     queue: default
+     schedule: at 9pm every day
