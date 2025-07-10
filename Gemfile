@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby "3.3.4"
 
-gem "rails", "~> 7.2.1"
+gem "rails", "~> 8.0.2"
 gem "mysql2", ">= 0.5.5"
 gem "puma", "~> 6.0"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
