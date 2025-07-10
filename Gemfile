@@ -11,6 +11,7 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "bootsnap", require: false
 gem "rack-cors"
 gem "solid_queue"
+gem 'kaminari'
 
 
 group :development, :test do
