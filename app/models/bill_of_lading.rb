@@ -8,6 +8,12 @@ class BillOfLading < ApplicationRecord
            foreign_key: :bill_of_lading_number,
            primary_key: :number
 
+  has_one :open_invoice,
+          -> { where(status: "open") },
+          class_name: "Invoice",
+          foreign_key: :bill_of_lading_number,
+          primary_key: :number
+
   has_many :refund_requests,
            class_name: "RefundRequest",
            foreign_key: :bill_of_lading_number,
@@ -15,12 +21,13 @@ class BillOfLading < ApplicationRecord
 
   validates :number, presence: true, uniqueness: { case_sensitive: false }
 
-  # Scope: find BLs overdue as of a specific date
+  # Scope: BLs that became overdue on a given date
   scope :overdue_as_of, ->(date) {
-    where("DATE(arrival_date + INTERVAL freetime DAY) = ?", date)
+    where("arrival_date + INTERVAL freetime DAY <= ?", date)
   }
 
-  # Total container count (for invoice generation)
+
+  # Total container count (used for invoice calculation)
   def container_count
     %i[
       n20_sec
