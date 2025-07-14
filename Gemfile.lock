@@ -155,11 +155,14 @@ GEM
     method_source (1.1.0)
     mini_mime (1.1.5)
     minitest (5.25.5)
-    mission_control-jobs (0.3.2)
-      importmap-rails
+    mission_control-jobs (1.1.0)
+      actioncable (>= 7.1)
+      actionpack (>= 7.1)
+      activejob (>= 7.1)
+      activerecord (>= 7.1)
+      importmap-rails (>= 1.2.1)
       irb (~> 1.13)
-      propshaft
-      rails (>= 7.1)
+      railties (>= 7.1)
       stimulus-rails
       turbo-rails
     msgpack (1.8.0)
@@ -193,11 +196,6 @@ GEM
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
-    propshaft (1.1.0)
-      actionpack (>= 7.0.0)
-      activesupport (>= 7.0.0)
-      rack
-      railties (>= 7.0.0)
     pry (0.15.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -295,7 +293,7 @@ GEM
     stringio (3.1.7)
     thor (1.3.2)
     timeout (0.4.3)
-    turbo-rails (2.0.13)
+    turbo-rails (2.0.16)
       actionpack (>= 7.1.0)
       railties (>= 7.1.0)
     tzinfo (2.0.6)
@@ -328,7 +326,7 @@ DEPENDENCIES
   faker
   kaminari
   listen (~> 3.3)
-  mission_control-jobs (= 0.3.2)
+  mission_control-jobs (= 1.1.0)
   mysql2 (>= 0.5.5)
   pry-rails
   puma (~> 6.0)
