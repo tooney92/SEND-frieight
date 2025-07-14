@@ -12,7 +12,7 @@ gem "bootsnap", require: false
 gem "rack-cors"
 gem "solid_queue"
 gem 'kaminari'
-gem "mission_control-jobs", "0.3.2"
+gem "mission_control-jobs", "1.1.0"
 
 
 group :development, :test do
