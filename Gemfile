@@ -6,7 +6,7 @@ ruby "3.3.4"
 
 gem "rails", "~> 7.2.1"
 gem "mysql2", ">= 0.5.5"
-gem "puma", "~> 6.0"
+gem "puma", "~> 6.6"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "bootsnap", require: false
 gem "rack-cors"
